@@ -1,0 +1,98 @@
+C:\Users\Joelw\source\repos\WebForum\WebForum\bin\Debug\netcoreapp2.1\WebForum.deps.json
+C:\Users\Joelw\source\repos\WebForum\WebForum\bin\Debug\netcoreapp2.1\WebForum.runtimeconfig.json
+C:\Users\Joelw\source\repos\WebForum\WebForum\bin\Debug\netcoreapp2.1\WebForum.runtimeconfig.dev.json
+C:\Users\Joelw\source\repos\WebForum\WebForum\bin\Debug\netcoreapp2.1\WebForum.dll
+C:\Users\Joelw\source\repos\WebForum\WebForum\bin\Debug\netcoreapp2.1\WebForum.pdb
+C:\Users\Joelw\source\repos\WebForum\WebForum\bin\Debug\netcoreapp2.1\WebForum.Views.dll
+C:\Users\Joelw\source\repos\WebForum\WebForum\bin\Debug\netcoreapp2.1\WebForum.Views.pdb
+C:\Users\Joelw\source\repos\WebForum\WebForum\obj\Debug\netcoreapp2.1\WebForum.csproj.CoreCompileInputs.cache
+C:\Users\Joelw\source\repos\WebForum\WebForum\obj\Debug\netcoreapp2.1\WebForum.RazorAssemblyInfo.cache
+C:\Users\Joelw\source\repos\WebForum\WebForum\obj\Debug\netcoreapp2.1\WebForum.RazorAssemblyInfo.cs
+C:\Users\Joelw\source\repos\WebForum\WebForum\obj\Debug\netcoreapp2.1\WebForum.AssemblyInfoInputs.cache
+C:\Users\Joelw\source\repos\WebForum\WebForum\obj\Debug\netcoreapp2.1\WebForum.AssemblyInfo.cs
+C:\Users\Joelw\source\repos\WebForum\WebForum\obj\Debug\netcoreapp2.1\WebForum.TagHelpers.input.cache
+C:\Users\Joelw\source\repos\WebForum\WebForum\obj\Debug\netcoreapp2.1\WebForum.TagHelpers.output.cache
+C:\Users\Joelw\source\repos\WebForum\WebForum\obj\Debug\netcoreapp2.1\WebForum.RazorCoreGenerate.cache
+C:\Users\Joelw\source\repos\WebForum\WebForum\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.g.cshtml.cs
+C:\Users\Joelw\source\repos\WebForum\WebForum\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
+C:\Users\Joelw\source\repos\WebForum\WebForum\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.g.cshtml.cs
+C:\Users\Joelw\source\repos\WebForum\WebForum\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
+C:\Users\Joelw\source\repos\WebForum\WebForum\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.g.cshtml.cs
+C:\Users\Joelw\source\repos\WebForum\WebForum\obj\Debug\netcoreapp2.1\Razor\Views\_ViewStart.g.cshtml.cs
+C:\Users\Joelw\source\repos\WebForum\WebForum\obj\Debug\netcoreapp2.1\WebForum.RazorTargetAssemblyInfo.cache
+C:\Users\Joelw\source\repos\WebForum\WebForum\obj\Debug\netcoreapp2.1\WebForum.RazorTargetAssemblyInfo.cs
+C:\Users\Joelw\source\repos\WebForum\WebForum\obj\Debug\netcoreapp2.1\WebForum.Views.pdb
+C:\Users\Joelw\source\repos\WebForum\WebForum\obj\Debug\netcoreapp2.1\WebForum.dll
+C:\Users\Joelw\source\repos\WebForum\WebForum\obj\Debug\netcoreapp2.1\WebForum.pdb
+C:\Users\Joelw\source\repos\WebForum\WebForum\obj\Debug\netcoreapp2.1\WebForum.csproj.CopyComplete
+C:\Users\Joelw\source\repos\WebForum\WebForum\obj\Debug\netcoreapp2.1\Razor\Views\Registration\Register.g.cshtml.cs
+C:\Users\Joelw\source\repos\WebForum\WebForum\obj\Debug\netcoreapp2.1\WebForum.csprojAssemblyReference.cache
+C:\Users\Joelw\source\repos\WebForum\WebForum\obj\Debug\netcoreapp2.1\Razor\Views\Post\PostIndex.g.cshtml.cs
+C:\Users\Joelw\source\repos\WebForum\WebForum\obj\Debug\netcoreapp2.1\Razor\Views\Post\PostThread\PostThread.g.cshtml.cs
+C:\Users\Joelw\source\repos\WebForum\WebForum\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
+C:\Users\Joelw\Desktop\Forum Projekt\WebForum\bin\Debug\netcoreapp2.1\WebForum.deps.json
+C:\Users\Joelw\Desktop\Forum Projekt\WebForum\bin\Debug\netcoreapp2.1\WebForum.runtimeconfig.json
+C:\Users\Joelw\Desktop\Forum Projekt\WebForum\bin\Debug\netcoreapp2.1\WebForum.runtimeconfig.dev.json
+C:\Users\Joelw\Desktop\Forum Projekt\WebForum\bin\Debug\netcoreapp2.1\WebForum.dll
+C:\Users\Joelw\Desktop\Forum Projekt\WebForum\bin\Debug\netcoreapp2.1\WebForum.pdb
+C:\Users\Joelw\Desktop\Forum Projekt\WebForum\bin\Debug\netcoreapp2.1\WebForum.Views.dll
+C:\Users\Joelw\Desktop\Forum Projekt\WebForum\bin\Debug\netcoreapp2.1\WebForum.Views.pdb
+C:\Users\Joelw\Desktop\Forum Projekt\WebForum\obj\Debug\netcoreapp2.1\WebForum.csprojAssemblyReference.cache
+C:\Users\Joelw\Desktop\Forum Projekt\WebForum\obj\Debug\netcoreapp2.1\WebForum.csproj.CoreCompileInputs.cache
+C:\Users\Joelw\Desktop\Forum Projekt\WebForum\obj\Debug\netcoreapp2.1\WebForum.RazorAssemblyInfo.cache
+C:\Users\Joelw\Desktop\Forum Projekt\WebForum\obj\Debug\netcoreapp2.1\WebForum.RazorAssemblyInfo.cs
+C:\Users\Joelw\Desktop\Forum Projekt\WebForum\obj\Debug\netcoreapp2.1\WebForum.AssemblyInfoInputs.cache
+C:\Users\Joelw\Desktop\Forum Projekt\WebForum\obj\Debug\netcoreapp2.1\WebForum.AssemblyInfo.cs
+C:\Users\Joelw\Desktop\Forum Projekt\WebForum\obj\Debug\netcoreapp2.1\WebForum.TagHelpers.input.cache
+C:\Users\Joelw\Desktop\Forum Projekt\WebForum\obj\Debug\netcoreapp2.1\WebForum.TagHelpers.output.cache
+C:\Users\Joelw\Desktop\Forum Projekt\WebForum\obj\Debug\netcoreapp2.1\WebForum.RazorCoreGenerate.cache
+C:\Users\Joelw\Desktop\Forum Projekt\WebForum\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
+C:\Users\Joelw\Desktop\Forum Projekt\WebForum\obj\Debug\netcoreapp2.1\Razor\Views\Post\PostIndex.g.cshtml.cs
+C:\Users\Joelw\Desktop\Forum Projekt\WebForum\obj\Debug\netcoreapp2.1\Razor\Views\Post\PostThread\PostThread.g.cshtml.cs
+C:\Users\Joelw\Desktop\Forum Projekt\WebForum\obj\Debug\netcoreapp2.1\Razor\Views\Registration\Register.g.cshtml.cs
+C:\Users\Joelw\Desktop\Forum Projekt\WebForum\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.g.cshtml.cs
+C:\Users\Joelw\Desktop\Forum Projekt\WebForum\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
+C:\Users\Joelw\Desktop\Forum Projekt\WebForum\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.g.cshtml.cs
+C:\Users\Joelw\Desktop\Forum Projekt\WebForum\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
+C:\Users\Joelw\Desktop\Forum Projekt\WebForum\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.g.cshtml.cs
+C:\Users\Joelw\Desktop\Forum Projekt\WebForum\obj\Debug\netcoreapp2.1\Razor\Views\_ViewStart.g.cshtml.cs
+C:\Users\Joelw\Desktop\Forum Projekt\WebForum\obj\Debug\netcoreapp2.1\WebForum.RazorTargetAssemblyInfo.cache
+C:\Users\Joelw\Desktop\Forum Projekt\WebForum\obj\Debug\netcoreapp2.1\WebForum.RazorTargetAssemblyInfo.cs
+C:\Users\Joelw\Desktop\Forum Projekt\WebForum\obj\Debug\netcoreapp2.1\WebForum.Views.pdb
+C:\Users\Joelw\Desktop\Forum Projekt\WebForum\obj\Debug\netcoreapp2.1\WebForum.dll
+C:\Users\Joelw\Desktop\Forum Projekt\WebForum\obj\Debug\netcoreapp2.1\WebForum.pdb
+C:\Users\Joelw\Desktop\Forum Projekt\WebForum\obj\Debug\netcoreapp2.1\WebForum.csproj.CopyComplete
+C:\Users\Joelw\Desktop\Repositories\Webforum\WebForum\bin\Debug\netcoreapp2.1\WebForum.deps.json
+C:\Users\Joelw\Desktop\Repositories\Webforum\WebForum\bin\Debug\netcoreapp2.1\WebForum.runtimeconfig.json
+C:\Users\Joelw\Desktop\Repositories\Webforum\WebForum\bin\Debug\netcoreapp2.1\WebForum.runtimeconfig.dev.json
+C:\Users\Joelw\Desktop\Repositories\Webforum\WebForum\bin\Debug\netcoreapp2.1\WebForum.dll
+C:\Users\Joelw\Desktop\Repositories\Webforum\WebForum\bin\Debug\netcoreapp2.1\WebForum.pdb
+C:\Users\Joelw\Desktop\Repositories\Webforum\WebForum\bin\Debug\netcoreapp2.1\WebForum.Views.dll
+C:\Users\Joelw\Desktop\Repositories\Webforum\WebForum\bin\Debug\netcoreapp2.1\WebForum.Views.pdb
+C:\Users\Joelw\Desktop\Repositories\Webforum\WebForum\obj\Debug\netcoreapp2.1\WebForum.csprojAssemblyReference.cache
+C:\Users\Joelw\Desktop\Repositories\Webforum\WebForum\obj\Debug\netcoreapp2.1\WebForum.csproj.CoreCompileInputs.cache
+C:\Users\Joelw\Desktop\Repositories\Webforum\WebForum\obj\Debug\netcoreapp2.1\WebForum.RazorAssemblyInfo.cache
+C:\Users\Joelw\Desktop\Repositories\Webforum\WebForum\obj\Debug\netcoreapp2.1\WebForum.RazorAssemblyInfo.cs
+C:\Users\Joelw\Desktop\Repositories\Webforum\WebForum\obj\Debug\netcoreapp2.1\WebForum.AssemblyInfoInputs.cache
+C:\Users\Joelw\Desktop\Repositories\Webforum\WebForum\obj\Debug\netcoreapp2.1\WebForum.AssemblyInfo.cs
+C:\Users\Joelw\Desktop\Repositories\Webforum\WebForum\obj\Debug\netcoreapp2.1\WebForum.TagHelpers.input.cache
+C:\Users\Joelw\Desktop\Repositories\Webforum\WebForum\obj\Debug\netcoreapp2.1\WebForum.TagHelpers.output.cache
+C:\Users\Joelw\Desktop\Repositories\Webforum\WebForum\obj\Debug\netcoreapp2.1\WebForum.RazorCoreGenerate.cache
+C:\Users\Joelw\Desktop\Repositories\Webforum\WebForum\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
+C:\Users\Joelw\Desktop\Repositories\Webforum\WebForum\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.g.cshtml.cs
+C:\Users\Joelw\Desktop\Repositories\Webforum\WebForum\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
+C:\Users\Joelw\Desktop\Repositories\Webforum\WebForum\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.g.cshtml.cs
+C:\Users\Joelw\Desktop\Repositories\Webforum\WebForum\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
+C:\Users\Joelw\Desktop\Repositories\Webforum\WebForum\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.g.cshtml.cs
+C:\Users\Joelw\Desktop\Repositories\Webforum\WebForum\obj\Debug\netcoreapp2.1\Razor\Views\_ViewStart.g.cshtml.cs
+C:\Users\Joelw\Desktop\Repositories\Webforum\WebForum\obj\Debug\netcoreapp2.1\WebForum.RazorTargetAssemblyInfo.cache
+C:\Users\Joelw\Desktop\Repositories\Webforum\WebForum\obj\Debug\netcoreapp2.1\WebForum.RazorTargetAssemblyInfo.cs
+C:\Users\Joelw\Desktop\Repositories\Webforum\WebForum\obj\Debug\netcoreapp2.1\WebForum.Views.pdb
+C:\Users\Joelw\Desktop\Repositories\Webforum\WebForum\obj\Debug\netcoreapp2.1\WebForum.dll
+C:\Users\Joelw\Desktop\Repositories\Webforum\WebForum\obj\Debug\netcoreapp2.1\WebForum.pdb
+C:\Users\Joelw\Desktop\Repositories\Webforum\WebForum\obj\Debug\netcoreapp2.1\WebForum.csproj.CopyComplete
+C:\Users\Joelw\Desktop\Repositories\Webforum\WebForum\obj\Debug\netcoreapp2.1\Razor\Views\Thread\ThreadIndex.g.cshtml.cs
+C:\Users\Joelw\Desktop\Repositories\Webforum\WebForum\obj\Debug\netcoreapp2.1\Razor\Pages\_ValidationScriptsPartial.g.cshtml.cs
+C:\Users\Joelw\Desktop\Repositories\Webforum\WebForum\obj\Debug\netcoreapp2.1\Razor\Views\Thread\Posts.g.cshtml.cs
+C:\Users\Joelw\Desktop\Repositories\Webforum\WebForum\obj\Debug\netcoreapp2.1\Razor\Views\Useraccounts\Login.g.cshtml.cs
+C:\Users\Joelw\Desktop\Repositories\Webforum\WebForum\obj\Debug\netcoreapp2.1\Razor\Views\Useraccounts\Register.g.cshtml.cs

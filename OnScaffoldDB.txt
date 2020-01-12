@@ -1,0 +1,17 @@
+ON SCAFFOLD DO FOLLOWING:
+
+Scaffold-DbContext "Server=DESKTOP-G93EGLN\SQLEXPRESS;Database=WebForumDB;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models/DB -force
+
+DELETE FOLLOWING INSIDE DBCONTEXT CLASS
+
+protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+                optionsBuilder.UseSqlServer("Server=DESKTOP-G93EGLN\\SQLEXPRESS;Database=WebForumDB;Trusted_Connection=True;");
+            }
+        }
+
+[Display(Name = "Categories")]
+[Display(Name = "Posts")]

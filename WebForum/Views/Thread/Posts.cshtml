@@ -1,0 +1,22 @@
+﻿@model IEnumerable<WebForum.Models.DB.Posts>
+
+@{
+    ViewData["Title"] = "PostsView";
+}
+
+<h2>PostsView</h2>
+
+<table class="table">
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>                    
+                        @Html.DisplayFor(m => item.PostDescription)
+                        @Html.DisplayFor(m => item.DatePosted)
+                        <button onclick="window.location.href = '/threadindex/thread/reply';">Reply</button>                    
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

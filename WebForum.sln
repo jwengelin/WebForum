@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.902
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebForum", "WebForum\WebForum.csproj", "{CF616182-E6DC-485C-82A2-8DBD60734ADB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CF616182-E6DC-485C-82A2-8DBD60734ADB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF616182-E6DC-485C-82A2-8DBD60734ADB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF616182-E6DC-485C-82A2-8DBD60734ADB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF616182-E6DC-485C-82A2-8DBD60734ADB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {73954CEB-8B7D-442C-9F5E-00DCA30C8CFB}
+	EndGlobalSection
+EndGlobal

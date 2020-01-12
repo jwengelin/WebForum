@@ -1,0 +1,21 @@
+﻿@model IEnumerable<WebForum.Models.DB.Threads>
+@{
+    ViewData["Title"] = "Posts";
+}
+
+<h2>Threads</h2>
+
+<table class="table">  
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <form method="post">
+                        <a href="/threadindex/thread?threadTitle=@item.ThreadTitle">@Html.DisplayFor(m => item.ThreadTitle)</a>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
