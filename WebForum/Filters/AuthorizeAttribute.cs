@@ -35,8 +35,7 @@ namespace WebForum.Filters
                 bool flagClaim = false;
                 foreach (var item in _claim)
                 {
-                    var myClaim = context.HttpContext.User.Claims;
-                    
+                   
                     if (context.HttpContext.User.HasClaim(item, item)) // VARFÖR HITTAR DEN INTE CLAIMS??
                     {
                         flagClaim = true;

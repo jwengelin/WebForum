@@ -30,9 +30,18 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="UserAccounts" asp-action="Login" class="navbar-brand">Login</a></li>
-                    <li><a asp-area="" asp-controller="UserAccounts" asp-action="Register" class="navbar-brand">Register</a></li>
+
+                    @if (User.Identity.IsAuthenticated == false)
+                    {
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Login", "Login", "UserAccounts")</li>
+                        <li>@Html.ActionLink("Register", "Register", "UserAccounts")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Logout", "Logout", "UserAccounts")</li>
+                    }
 
                 </ul>
             </div>

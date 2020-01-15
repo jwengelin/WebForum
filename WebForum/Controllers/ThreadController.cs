@@ -40,7 +40,7 @@ namespace WebForum.Controllers
         }
         [Authorize(Roles.USER)]
         [Route("/threadindex/thread/reply")]
-        public ActionResult Reply(string threadTitle)
+        public ActionResult Reply(int threadId)
         {
 
             return View();

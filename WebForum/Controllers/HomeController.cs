@@ -14,16 +14,18 @@ namespace WebForum.Controllers
     public class HomeController : Controller
     {
         private readonly WebForumDBContext _db;
+        private DataService service;
       
         public HomeController(WebForumDBContext db)
         {
             _db = db;
+            service = new DataService(_db);
         }
 
         public IActionResult Index()
         {
-            DataService dataService = new DataService(_db);
-            var categoryList = dataService.GetCategoriesInList();
+
+            var categoryList = service.GetCategoriesInList();
             return View(categoryList);
         }
 

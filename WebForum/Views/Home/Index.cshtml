@@ -2,15 +2,14 @@
 @{
     ViewData["Title"] = "Category Index";
 }
-
+    
 <h2>Categories</h2>
 
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.CategoryDescription)              
-                
+                @Html.DisplayNameFor(model => model.CategoryDescription)
             </th>
         </tr>
     </thead>
@@ -20,9 +19,9 @@
             <tr>
                 <td>
                     <form method="post">
-                        <a href="/threadindex?categoryName=@item.CategoryDescription">@Html.DisplayFor(m => item.CategoryDescription)</a> 
-                    </form>                 
-                </td>               
+                        <a href="/threadindex?categoryName=@item.CategoryDescription">@Html.DisplayFor(m => item.CategoryDescription)</a>
+                    </form>
+                </td>
             </tr>
         }
     </tbody>

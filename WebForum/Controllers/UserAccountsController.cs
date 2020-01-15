@@ -15,13 +15,16 @@ namespace WebForum.Controllers
         private readonly WebForumDBContext db;
         private IConfiguration config;
         private UserAccountService userService;
-        
+        private DataService dataService;
+        private List<Categories> categoryList;
+
         public UserAccountsController(WebForumDBContext _db, IConfiguration _config)
         {            
             db = _db;
             config = _config;
-            UserAccountService _userService = new UserAccountService(db, config);
-            userService = _userService;
+            userService = new UserAccountService(db, config);
+            dataService = new DataService(_db);
+            categoryList = dataService.GetCategoriesInList();
         }
         
         public ActionResult Login()
@@ -29,10 +32,10 @@ namespace WebForum.Controllers
             return View();
         }
 
-        public ActionResult Logoff()
+        public ActionResult Logout()
         {
             HttpContext.Session.Clear();
-            return Redirect("~/Home/Index");
+            return View("~/Views/Home/Index.cshtml", categoryList);
         }
 
         public ActionResult Register()
@@ -76,9 +79,10 @@ namespace WebForum.Controllers
             if (loginOk == true)
             {
                 var token = userService.CreateToken(name); // Variables to create token with?
-                HttpContext.Session.SetString("JWToken", token);
-                var message = HttpContext.Session.GetString("JWToken");
-                return RedirectToAction(nameof(Login));
+                HttpContext.Session.SetString("JWToken", token);               
+                var categoryList = dataService.GetCategoriesInList();
+                var sessionString = HttpContext.Session.GetString("JWToken");
+                return View("~/Views/Home/Index.cshtml", categoryList);
             }
             return RedirectToAction(nameof(Login));
 

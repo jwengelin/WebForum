@@ -12073,11 +12073,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Joelw\\Desktop\\Repositories\\Webforum\\WebForum\\WebForum.csproj",
+      "projectUniqueName": "C:\\Users\\Joelw\\Desktop\\Git\\WebForum\\WebForum\\WebForum.csproj",
       "projectName": "WebForum",
-      "projectPath": "C:\\Users\\Joelw\\Desktop\\Repositories\\Webforum\\WebForum\\WebForum.csproj",
+      "projectPath": "C:\\Users\\Joelw\\Desktop\\Git\\WebForum\\WebForum\\WebForum.csproj",
       "packagesPath": "C:\\Users\\Joelw\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Joelw\\Desktop\\Repositories\\Webforum\\WebForum\\obj\\",
+      "outputPath": "C:\\Users\\Joelw\\Desktop\\Git\\WebForum\\WebForum\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
