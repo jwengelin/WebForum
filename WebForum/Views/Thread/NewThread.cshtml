@@ -1,0 +1,35 @@
+﻿@model WebForum.Models.DB.NewThreadModel
+@{
+    int CategoryId = Convert.ToInt32(ViewBag.CategoryId); 
+}
+<h4>NewThreadModel</h4>
+
+@using (Html.BeginForm("ThreadForm", "Thread", FormMethod.Post))
+{
+    <table cellpadding="2" cellspacing="2">
+        <tr>
+            <td>Reply</td>
+            <td>
+                @Html.TextBoxFor(c => c.Thread.ThreadTitle)
+            </td>
+            <td>
+                @Html.TextAreaFor(m => m.Post.PostDescription)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Hidden("CategoryId", CategoryId)
+
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Post" /></td>
+        </tr>
+    </table>
+}
+
+    <div>
+        <a asp-action="Index" asp-controller="Home">Back to Home</a>
+    </div>
+

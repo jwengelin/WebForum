@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using WebForum.Models.DB;
 
 namespace WebForum.Models.DB
 {
@@ -162,5 +163,7 @@ namespace WebForum.Models.DB
                     .HasConstraintName("FK__UserThrea__user___47DBAE45");
             });
         }
+     
+        public DbSet<WebForum.Models.DB.NewThreadModel> NewThreadModel { get; set; }
     }
 }

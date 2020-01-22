@@ -18,9 +18,7 @@
         {
             <tr>
                 <td>
-                    <form method="post">
-                        <a href="/threadindex?categoryName=@item.CategoryDescription">@Html.DisplayFor(m => item.CategoryDescription)</a>
-                    </form>
+                    @Html.ActionLink(item.CategoryDescription, "ThreadIndex", "Thread", new { categoryId = item.CategoryId })
                 </td>
             </tr>
         }

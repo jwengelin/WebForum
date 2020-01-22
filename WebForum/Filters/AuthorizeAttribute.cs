@@ -36,7 +36,7 @@ namespace WebForum.Filters
                 foreach (var item in _claim)
                 {
                    
-                    if (context.HttpContext.User.HasClaim(item, item)) // VARFÖR HITTAR DEN INTE CLAIMS??
+                    if (context.HttpContext.User.HasClaim(item, item)) 
                     {
                         flagClaim = true;
                     }
@@ -47,7 +47,7 @@ namespace WebForum.Filters
             }
             else
             {
-                context.Result = new RedirectResult("~/Home/Index");
+                context.Result = new RedirectResult("~/Useraccounts/Login");
             }
             return;
         }

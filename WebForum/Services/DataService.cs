@@ -17,8 +17,49 @@ namespace WebForum.Services
         {
             _db = db;
         }
-        
+        public Posts PostReply (string postDescription, int threadId, DateTime date)
+        {
+            Posts reply = new Posts();
+            reply.PostDescription = postDescription;
+            reply.ThreadId = threadId;
+            reply.DatePosted = date;
+            return reply;
+        }
+        public Threads NewThread(string threadTitle, int categoryId, DateTime date)
+        {
+            Threads thread = new Threads();
+            thread.ThreadTitle = threadTitle;
+            thread.CategoryId = categoryId;
+            thread.ThreadDate = date;
+            return thread;
+        }
+        public string GetCategoryNameFromId (int categoryId)
+        {
+            var threadTitle = _db.Categories.Where(t => t.CategoryId == categoryId)
+                                     .Select(t => t.CategoryDescription).First().ToString();
+            return threadTitle;
+        }
+        public int GetUserIdFromName(string userName)
+        {
+            var userId = _db.UserAccounts.Where(t => t.AccountName == userName)
+                                    .Select(t => t.UserAccountId).First();
+            return userId;
+        }
 
+        public UserThreads UserThreadBridgeUpdate(int threadId, int userId)
+        {
+            UserThreads userThread = new UserThreads();
+            userThread.ThreadId = threadId;
+            userThread.UserAccountId = userId;
+            return userThread;
+        }
+        public string GetThreadTitle (int threadId)
+        {
+            var threadTitle = _db.Threads.Where(t => t.ThreadId == threadId)
+                                     .Select(t => t.ThreadTitle).First().ToString();
+            return threadTitle;
+        }
+        
         public List<Categories> GetCategoriesInList()
         {          
                 
@@ -30,10 +71,9 @@ namespace WebForum.Services
         public int GetCategoryIdFromName(string categoryName)
         {
             
-                var idList = (from s in _db.Categories
+                int id = (from s in _db.Categories
                             where s.CategoryDescription == categoryName
-                            select s.CategoryId).ToList();
-                int id = idList[0];
+                            select s.CategoryId).First();
                 return id;
             
         }
@@ -47,10 +87,9 @@ namespace WebForum.Services
         }
         public int GetThreadId(string threadTitle)
         {
-            var idList = (from s in _db.Threads
+            var id = (from s in _db.Threads
                           where s.ThreadTitle == threadTitle
-                          select s.ThreadId).ToList();
-            int id = idList[0];
+                          select s.ThreadId).First();
             return id;
         }
 

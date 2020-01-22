@@ -28,7 +28,7 @@ namespace WebForum.Services
             db = _db;
             Roles _roles = new Roles();
             roles = _roles;
-        }
+        }       
 
         public bool LoginUser(string accountNameInput, string accountPasswordInput) // Login
         {
@@ -76,7 +76,7 @@ namespace WebForum.Services
                 
                 return salt;
         }
-
+        
         public UserAccounts RegisterUser(string accountName, string accountPassword)
         {           
             string newSalt = CreateSalt(10); // Calls Create salt function

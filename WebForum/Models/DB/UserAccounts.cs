@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebForum.Models.DB
 {
@@ -12,7 +13,9 @@ namespace WebForum.Models.DB
         }
 
         public int UserAccountId { get; set; }
+        [Display(Name = "Account")]
         public string AccountName { get; set; }
+        [Display(Name = "Password")]
         public string AccountPassword { get; set; }
         public string Salt { get; set; }
         public int? RoleId { get; set; }

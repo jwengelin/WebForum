@@ -6,34 +6,37 @@
 
 <h2>View</h2>
 
+
 <h4>Posts</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="View">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="DatePosted" class="control-label"></label>
-                <input asp-for="DatePosted" class="form-control" />
-                <span asp-validation-for="DatePosted" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PostDescription" class="textarea"></label>
-                <textarea asp-for="PostDescription" class="form-control" />
-                <span asp-validation-for="PostDescription" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ThreadId" class="control-label"></label>
-                <select asp-for="ThreadId" class ="form-control" asp-items="ViewBag.ThreadId"></select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </form>
+
+            @using (Html.BeginForm("ReplyForm", "Thread", FormMethod.Post))
+            {
+                <table cellpadding="2" cellspacing="2">
+                    <tr>
+                        <td>Reply</td>
+                        <td>
+                            @Html.TextAreaFor(m => m.PostDescription)
+                        </td>
+                    </tr>                  
+                    <tr>
+                        <td>
+                            @Html.HiddenFor(m => m.ThreadId)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" value="Reply" /></td>
+                    </tr>
+                </table>
+            }
+
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" asp-controller="Home">Back to Home</a>
 </div>
 

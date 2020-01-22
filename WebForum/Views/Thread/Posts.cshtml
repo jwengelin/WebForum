@@ -17,13 +17,8 @@
                 <td>
                     @Html.DisplayFor(m => item.DatePosted)
                 </td>
-                <td>
-                    @using (Html.BeginForm("Reply", "Thread", new { id = item.ThreadId }, FormMethod.Post))
-
-                    {
-                        @Html.HiddenFor(m => item.ThreadId)
-                        <input type="submit" value="Reply" />
-                    }
+                <td>                                         
+                    @Html.ActionLink("Reply", "Reply", "Thread", new  {threadId = item.ThreadId }, new { @class = "btn btn-default" })                   
                 </td>                               
             </tr>
         }

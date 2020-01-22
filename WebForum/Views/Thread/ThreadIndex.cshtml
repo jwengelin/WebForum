@@ -4,18 +4,29 @@
 }
 
 <h2>Threads</h2>
+            @{ 
+                var catId = ViewBag.CategoryId;
+            }
+                                     
 
-<table class="table">  
+<table class="table">
     <tbody>
         @foreach (var item in Model)
         {
             <tr>
                 <td>
-                    <form method="post">
-                        <a href="/threadindex/thread?threadTitle=@item.ThreadTitle">@Html.DisplayFor(m => item.ThreadTitle)</a>
-                    </form>
+                    @Html.ActionLink(item.ThreadTitle, "Posts", "Thread", new { threadId = item.ThreadId})
                 </td>
-            </tr>
+            </tr>            
+
         }
     </tbody>
+
+    <tfoot>
+        <tr>
+            <td>               
+                @Html.ActionLink("New Thread", "NewThread", "Thread", new { categoryId = catId }, new { @class = "btn btn-default" })
+            </td>
+        </tr>
+    </tfoot>
 </table>
