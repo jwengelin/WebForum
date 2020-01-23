@@ -62,44 +62,58 @@ namespace WebForum.Services
         
         public List<Categories> GetCategoriesInList()
         {          
-                
-                var list = (from s in _db.Categories
-                            select s).ToList<Categories>();
-                    return list;
+                var list = _db.Categories.Select(m => m).ToList();
+            return list;
+
+                //var list = (from s in _db.Categories
+                //            select s).ToList<Categories>();
+                //    return list;
                          
         }
         public int GetCategoryIdFromName(string categoryName)
         {
-            
-                int id = (from s in _db.Categories
-                            where s.CategoryDescription == categoryName
-                            select s.CategoryId).First();
-                return id;
-            
+            var id = _db.Categories.Where(m => m.CategoryDescription == categoryName)
+                                .Select(m => m.CategoryId).First();
+            return id;
+
+                //int id = (from s in _db.Categories
+                //            where s.CategoryDescription == categoryName
+                //            select s.CategoryId).First();
+                //return id;           
         }
         public List<Threads> GetThreadsInList(int? categoryId)
         {
-
-            var list = (from s in _db.Threads
-                        where s.CategoryId == categoryId
-                        select s).ToList<Threads>();
+            var list = _db.Threads.Where(t => t.CategoryId == categoryId)
+                                .Select(t => t).ToList();
             return list;
+
+            //var list = (from s in _db.Threads
+            //            where s.CategoryId == categoryId
+            //            select s).ToList<Threads>();
+            //return list;
         }
         public int GetThreadId(string threadTitle)
         {
-            var id = (from s in _db.Threads
-                          where s.ThreadTitle == threadTitle
-                          select s.ThreadId).First();
+            var id = _db.Threads.Where(t => t.ThreadTitle == threadTitle)
+                               .Select(t => t.ThreadId).First();
             return id;
+
+            //var id = (from s in _db.Threads
+            //              where s.ThreadTitle == threadTitle
+            //              select s.ThreadId).First();
+            //return id;
         }
 
         public List<Posts> GetPosts(int? threadId)
         {
-
-            var list = (from s in _db.Posts
-                        where s.ThreadId == threadId
-                        select s).ToList<Posts>();
+            var list = _db.Posts.Where(p => p.ThreadId == threadId)
+                                .Select(t => t).ToList();
             return list;
+
+            //var list = (from s in _db.Posts
+            //            where s.ThreadId == threadId
+            //            select s).ToList<Posts>();
+            //return list;
         }
     }
 }

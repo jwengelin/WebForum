@@ -63,64 +63,46 @@ namespace WebForum.Controllers
             try
             {
                 _db.Posts.Add(reply); // adds customer entity to DB
-                _db.SaveChanges();
-                
-                return RedirectToAction("Posts", new {threadTitle = title });
+                _db.SaveChanges();                             
             }
-
             catch
             {
                 return View();
             }
-
+            return RedirectToAction("Posts", new { threadId });
         }
         [Authorize(Roles.USER)]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult ThreadForm(IFormCollection collection)
         {
-            string categoryName = null;
+            //string categoryName = null;
             var title = collection["Thread.ThreadTitle"];
             var postDescription = collection["Post.PostDescription"];
-            var categoryId = Convert.ToInt32(collection["CategoryId"]);
-           
+            var categoryId = Convert.ToInt32(collection["CategoryId"]);           
             var datePosted = DateTime.Now;
-            var thread = dataService.NewThread(title, categoryId, datePosted);
-            try
-            {
-                _db.Threads.Add(thread); 
-                _db.SaveChanges();
-                categoryName = dataService.GetCategoryNameFromId(categoryId);
-            }
-            catch
-            {
-                return RedirectToAction("ThreadIndex", new { categoryName });
-            }        
+            var thread = dataService.NewThread(title, categoryId, datePosted);                   
             var threadId = dataService.GetThreadId(title);
-            var post = dataService.PostReply(postDescription, threadId, datePosted);
-            try
-            {
-                _db.Posts.Add(post); 
-                _db.SaveChanges();
-            }
-            catch
-            {
-                return RedirectToAction("ThreadIndex", new { categoryName });
-            }
+            var post = dataService.PostReply(postDescription, threadId, datePosted);            
             var userName = HttpContext.User.Identity.Name;
+            if (userName==null)
+            {
+                return View("~/Views/Useraccounts/Login.cshtml");
+            }
             var userId = dataService.GetUserIdFromName(userName);
             var userThreadBridge = dataService.UserThreadBridgeUpdate(threadId, userId);
             try
             {
+                _db.Threads.Add(thread);
+                _db.Posts.Add(post);
                 _db.UserThreads.Add(userThreadBridge);
                 _db.SaveChanges();
             }
             catch
             {
-                return RedirectToAction("ThreadIndex", new { categoryName });
+                return RedirectToAction("ThreadIndex", new { categoryId });
             }
-            return RedirectToAction("ThreadIndex", new { categoryName });
-
+            return RedirectToAction("ThreadIndex", new { categoryId });
         }
         // POST: Categories/Create       
         [HttpPost]
