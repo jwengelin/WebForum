@@ -1,4 +1,4 @@
-﻿@model IEnumerable<WebForum.Models.DB.Posts>
+﻿@model IEnumerable<WebForum.Models.PostsViewModel>
 
 <h1>
     Posts
@@ -9,21 +9,26 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td class="col-sm-3">
-                @Html.DisplayFor(m => item.PostDescription)
-            </td>
-            <td>
-                @Html.DisplayFor(m => item.DatePosted)
-            </td>
-            <td>
-                @Html.ActionLink("Reply", "Reply", "Thread", new { threadId = item.ThreadId }, new { @class = "btn btn-default" })
-            </td>
-            <td>
-                @Html.ActionLink("Delete Post", "DeletePost", "Thread",new {postId = item.PostId, threadId = item.ThreadId}, new { @class = "btn btn-default" })
-            </td>
-        </tr>
+            <tr>
+                <td class="col-sm-3">
+                    @Html.DisplayFor(m => item.Post.PostDescription)
+                </td>
+                <td>
+                    Posted by: @Html.DisplayFor(m => item.UserAccount.AccountName)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.Post.DatePosted)
+                </td>
+                <td>
+                    @Html.ActionLink("Reply", "Reply", "Thread", new { threadId = item.Post.ThreadId }, new { @class = "btn btn-default" })
+                </td>
+                <td>
+                    @Html.ActionLink("Delete Post", "DeletePost", "Thread", new { postId = item.Post.PostId, threadId = item.Post.ThreadId }, new { @class = "btn btn-default" })
+                </td>
+            </tr>
         }
-        
+
     </tbody>
 </table>
+
+

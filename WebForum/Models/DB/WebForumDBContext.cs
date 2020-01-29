@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using WebForum.Models;
 
 namespace WebForum.Models.DB
 {
@@ -145,5 +146,7 @@ namespace WebForum.Models.DB
                     .IsUnicode(false);
             });
         }
+
+        public DbSet<WebForum.Models.PostsViewModel> PostsViewModel { get; set; }
     }
 }

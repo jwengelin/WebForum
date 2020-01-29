@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using WebForum.Models;
 using WebForum.Models.DB;
 
 
@@ -106,6 +107,44 @@ namespace WebForum.Services
                                .Select(t => t.ThreadId).First();
             return id;
 
+        }
+        public List<PostsViewModel> AddPostsToList (int threadId)
+        {
+            var postsList = GetPostsInList(threadId);
+
+            List<PostsViewModel> viewList = new List<PostsViewModel>();
+            foreach (var item in postsList)
+            {
+                var user = GetUserName(item.UserAccountId);
+                var userPost = GetUserPost(item.PostId);
+                var viewModel = GetPostsViewModel(user, userPost);
+                viewList.Add(viewModel);
+            }
+            return viewList;
+        }
+
+        private Posts GetUserPost(int postId)
+        {
+            var name = _db.Posts.Where(p => p.PostId == postId)
+                                .Select(t => t).First();
+            return name;
+        }
+
+        private UserAccounts GetUserName(int userAccountId)
+        {
+            var name = _db.UserAccounts.Where(p => p.UserAccountId == userAccountId)
+                                .Select(t => t).First();
+            return name;
+        }
+
+        public PostsViewModel GetPostsViewModel(UserAccounts user, Posts post)
+        {
+            PostsViewModel postsView = new PostsViewModel()
+            {
+                Post = post,
+                UserAccount = user              
+            };
+            return postsView;
         }
 
         public List<Posts> GetPostsInList(int? threadId)

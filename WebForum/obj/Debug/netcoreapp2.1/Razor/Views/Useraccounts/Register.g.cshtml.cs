@@ -112,7 +112,7 @@ using WebForum.Models;
             WriteLiteral("        </div>\r\n    </div>\r\n\r\n    <div>\r\n        ");
             EndContext();
             BeginContext(962, 60, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "15f7b950edf148a19e334882d0ed75a2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9a4be502bcbb4c449e019dbc69f0c321", async() => {
                 BeginContext(1006, 12, true);
                 WriteLiteral("Back to Home");
                 EndContext();

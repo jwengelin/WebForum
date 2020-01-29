@@ -34,7 +34,9 @@ namespace WebForum.Controllers
         }
         public ActionResult Posts(int threadId)
         {
-            var postsList = dataService.GetPostsInList(threadId);
+            var postsList = dataService.AddPostsToList(threadId);
+            //var postsList = dataService.GetPostsInList(threadId);           
+            //var posts = dataService.GetPosts(threadId);
             return View(postsList);
         }
 
