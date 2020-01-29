@@ -1,0 +1,20 @@
+﻿@model IEnumerable<WebForum.Models.DB.UserAccounts>
+
+@{
+    ViewData["Title"] = "UserView";
+}
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountName)
+            </td>           
+        </tr>
+}
+    </tbody>
+</table>

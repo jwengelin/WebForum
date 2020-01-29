@@ -17,23 +17,31 @@ namespace WebForum.Services
         {
             _db = db;
         }
-        public Posts PostReply (string postDescription, int threadId, DateTime date)
+        public Posts PostReply(string postDescription, int threadId, DateTime date, int userId)
         {
-            Posts reply = new Posts();
-            reply.PostDescription = postDescription;
-            reply.ThreadId = threadId;
-            reply.DatePosted = date;
+            Posts reply = new Posts()
+            {
+                PostDescription = postDescription,
+                ThreadId = threadId,
+                DatePosted = date,
+                UserAccountId = userId
+            };
+            
             return reply;
         }
-        public Threads NewThread(string threadTitle, int categoryId, DateTime date)
+
+        public Threads NewThread(string threadTitle, int categoryId, DateTime date, int userId)
         {
-            Threads thread = new Threads();
-            thread.ThreadTitle = threadTitle;
-            thread.CategoryId = categoryId;
-            thread.ThreadDate = date;
+            Threads thread = new Threads()
+            {
+                ThreadTitle = threadTitle,
+                CategoryId = categoryId,
+                ThreadDate = date,
+                UserAccountId = userId
+            };
             return thread;
         }
-        public string GetCategoryNameFromId (int categoryId)
+        public string GetCategoryNameFromId(int categoryId)
         {
             var threadTitle = _db.Categories.Where(t => t.CategoryId == categoryId)
                                      .Select(t => t.CategoryDescription).First().ToString();
@@ -46,29 +54,27 @@ namespace WebForum.Services
             return userId;
         }
 
-        public UserThreads UserThreadBridgeUpdate(int threadId, int userId)
-        {
-            UserThreads userThread = new UserThreads();
-            userThread.ThreadId = threadId;
-            userThread.UserAccountId = userId;
-            return userThread;
-        }
-        public string GetThreadTitle (int threadId)
+        //public UserThreads UserThreadBridgeUpdate(int threadId, int userId)
+        //{
+        //    UserThreads userThread = new UserThreads();
+        //    userThread.ThreadId = threadId;
+        //    userThread.UserAccountId = userId;
+        //    return userThread;
+        //}
+        public string GetThreadTitle(int threadId)
         {
             var threadTitle = _db.Threads.Where(t => t.ThreadId == threadId)
                                      .Select(t => t.ThreadTitle).First().ToString();
             return threadTitle;
         }
-        
+
         public List<Categories> GetCategoriesInList()
-        {          
-                var list = _db.Categories.Select(m => m).ToList();
+        {
+            var list = _db.Categories.Select(m => m).ToList();
             return list;
 
-                //var list = (from s in _db.Categories
-                //            select s).ToList<Categories>();
-                //    return list;
-                         
+            
+
         }
         public int GetCategoryIdFromName(string categoryName)
         {
@@ -76,10 +82,7 @@ namespace WebForum.Services
                                 .Select(m => m.CategoryId).First();
             return id;
 
-                //int id = (from s in _db.Categories
-                //            where s.CategoryDescription == categoryName
-                //            select s.CategoryId).First();
-                //return id;           
+                     
         }
         public List<Threads> GetThreadsInList(int? categoryId)
         {
@@ -87,10 +90,7 @@ namespace WebForum.Services
                                 .Select(t => t).ToList();
             return list;
 
-            //var list = (from s in _db.Threads
-            //            where s.CategoryId == categoryId
-            //            select s).ToList<Threads>();
-            //return list;
+        
         }
         public int GetThreadId(string threadTitle)
         {
@@ -98,22 +98,50 @@ namespace WebForum.Services
                                .Select(t => t.ThreadId).First();
             return id;
 
-            //var id = (from s in _db.Threads
-            //              where s.ThreadTitle == threadTitle
-            //              select s.ThreadId).First();
-            //return id;
+            
+        }
+        public int GetThreadId(int postId)
+        {
+            var id = _db.Posts.Where(t => t.PostId == postId)
+                               .Select(t => t.ThreadId).First();
+            return id;
+
         }
 
-        public List<Posts> GetPosts(int? threadId)
+        public List<Posts> GetPostsInList(int? threadId)
         {
             var list = _db.Posts.Where(p => p.ThreadId == threadId)
                                 .Select(t => t).ToList();
             return list;
+        }
+        public Posts GetPost (int postId)
+        {
+            var post = _db.Posts.Where(p => p.PostId == postId)
+                                .FirstOrDefault();
+            return post;
+        }
 
-            //var list = (from s in _db.Posts
-            //            where s.ThreadId == threadId
-            //            select s).ToList<Posts>();
-            //return list;
+        public bool CheckIfPostMadeByUser(int userId, int postId)
+        {
+            bool userAllowed = false;
+            var id = _db.Posts.Where(p => p.PostId == postId)
+                                .Select(t => t.UserAccountId).First();
+            if (id != userId)
+            {
+                return userAllowed;
+            }
+            return userAllowed = true;
+        }
+
+
+        public List<Posts> GetUserPost(int postId, int userId)
+        {
+
+            var list = _db.Posts.Where(p => p.PostId == postId)
+                                .Select(t => t).ToList();
+            return list;
+
+            
         }
     }
 }

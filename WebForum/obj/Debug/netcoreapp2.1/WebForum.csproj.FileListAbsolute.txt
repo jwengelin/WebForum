@@ -133,3 +133,5 @@ C:\Users\Joelw\Desktop\Git\WebForum\WebForum\obj\Debug\netcoreapp2.1\WebForum.cs
 C:\Users\Joelw\Desktop\Git\WebForum\WebForum\obj\Debug\netcoreapp2.1\Razor\Views\Thread\Reply.g.cshtml.cs
 C:\Users\Joelw\Desktop\Git\WebForum\WebForum\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Modal.g.cshtml.cs
 C:\Users\Joelw\Desktop\Git\WebForum\WebForum\obj\Debug\netcoreapp2.1\Razor\Views\Thread\NewThread.g.cshtml.cs
+C:\Users\Joelw\Desktop\Git\WebForum\WebForum\obj\Debug\netcoreapp2.1\Razor\Views\Thread\DeletePost.g.cshtml.cs
+C:\Users\Joelw\Desktop\Git\WebForum\WebForum\obj\Debug\netcoreapp2.1\Razor\Views\Useraccounts\UserView.g.cshtml.cs

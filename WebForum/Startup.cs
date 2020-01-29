@@ -72,9 +72,6 @@ namespace WebForum
                     ClockSkew = TimeSpan.Zero
                 };
             });
-
-
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -113,6 +110,12 @@ namespace WebForum
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
+
+                routes.MapRoute(
+                    name: "thread",
+                    template: "{controller=Thread}/{action?}/{id?}");
+
+
             });
         }
     }

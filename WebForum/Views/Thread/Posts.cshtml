@@ -1,26 +1,29 @@
 ﻿@model IEnumerable<WebForum.Models.DB.Posts>
 
-@{
-    ViewData["Title"] = "PostsView";
-}
+<h1>
+    Posts
+</h1>
 
-<h2>PostsView</h2>
 
 <table class="table">
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td class="col-sm-3">
-                    @Html.DisplayFor(m => item.PostDescription)
-                </td>                   
-                <td>
-                    @Html.DisplayFor(m => item.DatePosted)
-                </td>
-                <td>                                         
-                    @Html.ActionLink("Reply", "Reply", "Thread", new  {threadId = item.ThreadId }, new { @class = "btn btn-default" })                   
-                </td>                               
-            </tr>
+        <tr>
+            <td class="col-sm-3">
+                @Html.DisplayFor(m => item.PostDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.DatePosted)
+            </td>
+            <td>
+                @Html.ActionLink("Reply", "Reply", "Thread", new { threadId = item.ThreadId }, new { @class = "btn btn-default" })
+            </td>
+            <td>
+                @Html.ActionLink("Delete Post", "DeletePost", "Thread",new {postId = item.PostId, threadId = item.ThreadId}, new { @class = "btn btn-default" })
+            </td>
+        </tr>
         }
+        
     </tbody>
 </table>

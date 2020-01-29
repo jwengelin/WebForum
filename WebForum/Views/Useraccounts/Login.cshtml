@@ -1,29 +1,30 @@
 ﻿@model WebForum.Models.DB.UserAccounts
 
-@{
-    ViewData["Title"] = "LoginView";
-}
 
-<h2>Login</h2>
-
+<h1>
+    Login
+</h1>
 <div class="row">
     <div class="col-md-4">
-        <form asp-controller="UserAccounts" asp-action="LoginForm">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        @using (Html.BeginForm("LoginForm", "UserAccounts", FormMethod.Post))
+        {
             <div class="form-group">
-                <label asp-for="AccountName" class="control-label"></label>
-                <input asp-for="AccountName" class="form-control" />
-                <span asp-validation-for="AccountName" class="text-danger"></span>
+                <div>
+                    @Html.LabelFor(m => m.AccountName)
+                </div>
+                @Html.TextBoxFor(m => m.AccountName)
             </div>
             <div class="form-group">
-                <label asp-for="AccountPassword" class="control-label"></label>
-                <input asp-for="AccountPassword" class="form-control" type="password" />
-                <span asp-validation-for="AccountPassword" class="text-danger"></span>
+                <div>
+                    @Html.LabelFor(m => m.AccountPassword)
+                </div>
+
+                @Html.PasswordFor(m => m.AccountPassword)
             </div>
             <div class="form-group">
                 <input type="submit" value="Login" class="btn btn-default" />
             </div>
-        </form>
+        }
     </div>
 </div>
 

@@ -24,18 +24,18 @@ namespace WebForum.Controllers
             _db = db;
             config = _config;
             userService = new UserAccountService(_db, config);
-            dataService = new DataService(_db);           
+            dataService = new DataService(_db);
         }
         public ActionResult ThreadIndex(int categoryId)
-        {         
+        {
             var threadsList = dataService.GetThreadsInList(categoryId);
             ViewBag.CategoryId = categoryId;
             return View(threadsList);
         }
         public ActionResult Posts(int threadId)
         {
-            var postsList = dataService.GetPosts(threadId);
-            return View(postsList) ;
+            var postsList = dataService.GetPostsInList(threadId);
+            return View(postsList);
         }
 
         [Authorize(Roles.USER)]
@@ -51,24 +51,57 @@ namespace WebForum.Controllers
         }
 
         [Authorize(Roles.USER)]
-        [HttpPost]   
+        public ActionResult DeletePost(int postId)
+        {
+            var post = dataService.GetPost(postId);
+            var threadId = dataService.GetThreadId(postId);
+            var userName = HttpContext.User.Identity.Name;
+            var userId = dataService.GetUserIdFromName(userName);
+            var userAllowed = dataService.CheckIfPostMadeByUser(userId, postId);
+
+            if (userAllowed != true)
+            {
+                return RedirectToAction("Posts", new { threadId });
+            }
+            return View(post);
+        }
+        [Authorize(Roles.USER)]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePostInDb(IFormCollection collection)
+        {
+            var postId = Convert.ToInt32(collection["PostId"]);
+            var post = dataService.GetPost(postId);
+            var threadId = post.ThreadId;
+            _db.Posts.Remove(post);
+            _db.SaveChanges();
+            return RedirectToAction("Posts", new { threadId });
+        }
+
+        [Authorize(Roles.USER)]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult ReplyForm(IFormCollection collection)
         {
+            var userName = HttpContext.User.Identity.Name;
+            var userId = dataService.GetUserIdFromName(userName);
             var post = collection["PostDescription"];
             var threadId = Convert.ToInt32(collection["ThreadId"]);
             var datePosted = DateTime.Now;
-            var reply = dataService.PostReply(post, threadId, datePosted);
+            var reply = dataService.PostReply(post, threadId, datePosted, userId);
             var title = dataService.GetThreadTitle(reply.ThreadId);
-            try
+            using (var transaction = _db.Database.BeginTransaction())
             {
-                _db.Posts.Add(reply); // adds customer entity to DB
-                _db.SaveChanges();                             
-            }
-            catch
-            {
-                return View();
-            }
+                try
+                {
+                    _db.Posts.Add(reply); // adds customer entity to DB
+                    _db.SaveChanges();
+                    transaction.Commit();
+                }
+                catch
+                {
+                    transaction.Rollback();
+                }
+            }                
             return RedirectToAction("Posts", new { threadId });
         }
         [Authorize(Roles.USER)]
@@ -76,43 +109,45 @@ namespace WebForum.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult ThreadForm(IFormCollection collection)
         {
-            //string categoryName = null;
+            var userName = HttpContext.User.Identity.Name;
+            var userId = dataService.GetUserIdFromName(userName);
             var title = collection["Thread.ThreadTitle"];
             var postDescription = collection["Post.PostDescription"];
-            var categoryId = Convert.ToInt32(collection["CategoryId"]);           
+            var categoryId = Convert.ToInt32(collection["CategoryId"]);
             var datePosted = DateTime.Now;
-            var thread = dataService.NewThread(title, categoryId, datePosted);                   
-            var threadId = dataService.GetThreadId(title);
-            var post = dataService.PostReply(postDescription, threadId, datePosted);            
-            var userName = HttpContext.User.Identity.Name;
-            if (userName==null)
+            var thread = dataService.NewThread(title, categoryId, datePosted, userId);
+            using (var transaction = _db.Database.BeginTransaction())
             {
-                return View("~/Views/Useraccounts/Login.cshtml");
-            }
-            var userId = dataService.GetUserIdFromName(userName);
-            var userThreadBridge = dataService.UserThreadBridgeUpdate(threadId, userId);
-            try
-            {
-                _db.Threads.Add(thread);
-                _db.Posts.Add(post);
-                _db.UserThreads.Add(userThreadBridge);
-                _db.SaveChanges();
-            }
-            catch
-            {
-                return RedirectToAction("ThreadIndex", new { categoryId });
-            }
+                try
+                {
+                    _db.Threads.Add(thread);
+                    _db.SaveChanges();
+                    var threadId = dataService.GetThreadId(title);
+                    var post = dataService.PostReply(postDescription, threadId, datePosted, userId);
+                    _db.Posts.Add(post);
+                    _db.SaveChanges();
+                    //var userName = HttpContext.User.Identity.Name;
+                    //var userId = dataService.GetUserIdFromName(userName);
+                    //var userThreadBridge = dataService.UserThreadBridgeUpdate(threadId, userId);
+                    //_db.SaveChanges();
+                    transaction.Commit();
+                }
+                catch
+                {
+                    transaction.Rollback();
+                }                
+            }            
             return RedirectToAction("ThreadIndex", new { categoryId });
         }
         // POST: Categories/Create       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(string category)
-        {            
+        {
 
             return View();
         }
-        [Authorize (Roles.USER)]
+        [Authorize(Roles.USER)]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult PostForm(IFormCollection collection)

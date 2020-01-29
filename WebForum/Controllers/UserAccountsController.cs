@@ -25,8 +25,13 @@ namespace WebForum.Controllers
             userService = new UserAccountService(db, config);
             dataService = new DataService(_db);
             categoryList = dataService.GetCategoriesInList();
+
         }
-        
+        public ActionResult UserView()
+        {
+            return View("~/Views/Home/Index.cshtml", categoryList);
+        }
+
         public ActionResult Login()
         {
             return View();
@@ -54,16 +59,14 @@ namespace WebForum.Controllers
             
             try
             {
-                db.UserAccounts.Add(user); // adds customer entity to DB
+                db.UserAccounts.Add(user);
                 db.SaveChanges();
-                // Create token? Here or on login? Both?
-                return RedirectToAction(nameof(Login));
-            }
-                            
-            catch
+            }                            
+            catch 
             {
-                return View();
+                RedirectToAction(nameof(Register));
             }
+            return RedirectToAction(nameof(Login));
         }
 
         // POST: Registration/Create
@@ -76,15 +79,14 @@ namespace WebForum.Controllers
             var name = collection["AccountName"];
             var password = collection["AccountPassword"];
             loginOk = userService.LoginUser(name, password);
-            if (loginOk == true)
+            if (loginOk != true)
             {
-                var token = userService.CreateToken(name); // Variables to create token with?
-                HttpContext.Session.SetString("JWToken", token);               
-                var categoryList = dataService.GetCategoriesInList();
-                var sessionString = HttpContext.Session.GetString("JWToken");
-                return View("~/Views/Home/Index.cshtml", categoryList);
-            }
-            return RedirectToAction(nameof(Login));
+                return RedirectToAction(nameof(Login));
+            }           
+            var token = userService.CreateToken(name); // Variables to create token with?
+            HttpContext.Session.SetString("JWToken", token);
+            var sessionString = HttpContext.Session.GetString("JWToken");
+            return RedirectToAction(nameof(UserView));
 
         }
 

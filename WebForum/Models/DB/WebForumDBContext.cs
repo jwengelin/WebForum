@@ -1,7 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using WebForum.Models.DB;
 
 namespace WebForum.Models.DB
 {
@@ -20,10 +19,8 @@ namespace WebForum.Models.DB
         public virtual DbSet<Posts> Posts { get; set; }
         public virtual DbSet<Threads> Threads { get; set; }
         public virtual DbSet<UserAccounts> UserAccounts { get; set; }
-        public virtual DbSet<UserPosts> UserPosts { get; set; }
-        public virtual DbSet<UserRoles> UserRoles { get; set; }
-        public virtual DbSet<UserThreads> UserThreads { get; set; }
-     
+        public virtual DbSet<UserRoles> UserRoles { get; set; }        
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Categories>(entity =>
@@ -53,11 +50,19 @@ namespace WebForum.Models.DB
 
                 entity.Property(e => e.ThreadId).HasColumnName("thread_id");
 
+                entity.Property(e => e.UserAccountId).HasColumnName("user_account_id");
+
                 entity.HasOne(d => d.Thread)
                     .WithMany(p => p.Posts)
                     .HasForeignKey(d => d.ThreadId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Posts__thread_id__3C69FB99");
+                    .HasConstraintName("FK__Posts__thread_id__4316F928");
+
+                entity.HasOne(d => d.UserAccount)
+                    .WithMany(p => p.Posts)
+                    .HasForeignKey(d => d.UserAccountId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Posts__user_acco__440B1D61");
             });
 
             modelBuilder.Entity<Threads>(entity =>
@@ -76,58 +81,56 @@ namespace WebForum.Models.DB
                     .HasColumnName("thread_title")
                     .HasMaxLength(200);
 
+                entity.Property(e => e.UserAccountId).HasColumnName("user_account_id");
+
                 entity.HasOne(d => d.Category)
                     .WithMany(p => p.Threads)
                     .HasForeignKey(d => d.CategoryId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Threads__categor__398D8EEE");
+                    .HasConstraintName("FK__Threads__categor__3F466844");
+
+                entity.HasOne(d => d.UserAccount)
+                    .WithMany(p => p.Threads)
+                    .HasForeignKey(d => d.UserAccountId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Threads__user_ac__403A8C7D");
             });
 
             modelBuilder.Entity<UserAccounts>(entity =>
             {
                 entity.HasKey(e => e.UserAccountId);
 
+                entity.HasIndex(e => e.AccountName)
+                    .HasName("UQ__UserAcco__6894C54A5E54A5A8")
+                    .IsUnique();
+
                 entity.Property(e => e.UserAccountId).HasColumnName("user_account_id");
 
                 entity.Property(e => e.AccountName)
+                    .IsRequired()
                     .HasColumnName("account_name")
-                    .HasMaxLength(100);
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.AccountPassword)
+                    .IsRequired()
                     .HasColumnName("account_password")
-                    .HasMaxLength(400);
+                    .HasMaxLength(400)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.RoleId).HasColumnName("role_id");
 
                 entity.Property(e => e.Salt)
+                    .IsRequired()
                     .HasColumnName("salt")
-                    .HasMaxLength(50);
+                    .HasMaxLength(10)
+                    .IsUnicode(false);
 
                 entity.HasOne(d => d.Role)
                     .WithMany(p => p.UserAccounts)
                     .HasForeignKey(d => d.RoleId)
-                    .HasConstraintName("FK__UserAccou__role___412EB0B6");
-            });
-
-            modelBuilder.Entity<UserPosts>(entity =>
-            {
-                entity.HasKey(e => e.UpId);
-
-                entity.Property(e => e.UpId).HasColumnName("up_id");
-
-                entity.Property(e => e.PostId).HasColumnName("post_id");
-
-                entity.Property(e => e.UserAccountId).HasColumnName("user_account_id");
-
-                entity.HasOne(d => d.Post)
-                    .WithMany(p => p.UserPosts)
-                    .HasForeignKey(d => d.PostId)
-                    .HasConstraintName("FK__UserPosts__post___44FF419A");
-
-                entity.HasOne(d => d.UserAccount)
-                    .WithMany(p => p.UserPosts)
-                    .HasForeignKey(d => d.UserAccountId)
-                    .HasConstraintName("FK__UserPosts__user___440B1D61");
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__UserAccou__role___3C69FB99");
             });
 
             modelBuilder.Entity<UserRoles>(entity =>
@@ -141,29 +144,6 @@ namespace WebForum.Models.DB
                     .HasMaxLength(50)
                     .IsUnicode(false);
             });
-
-            modelBuilder.Entity<UserThreads>(entity =>
-            {
-                entity.HasKey(e => e.UtId);
-
-                entity.Property(e => e.UtId).HasColumnName("ut_id");
-
-                entity.Property(e => e.ThreadId).HasColumnName("thread_id");
-
-                entity.Property(e => e.UserAccountId).HasColumnName("user_account_id");
-
-                entity.HasOne(d => d.Thread)
-                    .WithMany(p => p.UserThreads)
-                    .HasForeignKey(d => d.ThreadId)
-                    .HasConstraintName("FK__UserThrea__threa__48CFD27E");
-
-                entity.HasOne(d => d.UserAccount)
-                    .WithMany(p => p.UserThreads)
-                    .HasForeignKey(d => d.UserAccountId)
-                    .HasConstraintName("FK__UserThrea__user___47DBAE45");
-            });
         }
-     
-        public DbSet<WebForum.Models.DB.NewThreadModel> NewThreadModel { get; set; }
     }
 }

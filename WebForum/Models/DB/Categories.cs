@@ -11,6 +11,7 @@ namespace WebForum.Models.DB
             Threads = new HashSet<Threads>();
         }
 
+        
         public int CategoryId { get; set; }
         [Display(Name = "Categories")]
         public string CategoryDescription { get; set; }
